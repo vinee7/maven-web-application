@@ -6,6 +6,8 @@ node {
     
     
     try {
+    slack('STARTED')
+    
     stage('checkout'){
         git credentialsId: '9c3c4739-f32d-4bcb-ac9b-d3fbaef36a30', url: 'https://github.com/vinee7/maven-web-application.git'
     }
