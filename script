@@ -12,13 +12,14 @@ node {
         sh "${ma}/bin/mvn clean package"
     }
     
-     stage('sonarqube'){
+   /*  stage('sonarqube'){
         sh "${ma}/bin/mvn clean sonar:sonar"
     }
     
      stage('nexus'){
         sh "${ma}/bin/mvn clean deploy"
     }
+    */
     
      
         
