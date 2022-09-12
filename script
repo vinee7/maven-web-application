@@ -1,0 +1,26 @@
+node {
+    
+    def  ma =tool name: "maven 3.8.6"
+    echo "${env.CHANGE_ID}"
+    echo "${env.CHANGE_URL}"
+    
+    stage('checkout'){
+        git credentialsId: '9c3c4739-f32d-4bcb-ac9b-d3fbaef36a30', url: 'https://github.com/vinee7/maven-web-application.git'
+    }
+    
+    stage('build'){
+        sh "${ma}/bin/mvn clean package"
+    }
+    
+     stage('sonarqube'){
+        sh "${ma}/bin/mvn clean sonar:sonar"
+    }
+    
+     stage('nexus'){
+        sh "${ma}/bin/mvn clean deploy"
+    }
+    
+     
+        
+    
+}
